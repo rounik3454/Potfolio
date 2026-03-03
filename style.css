@@ -80,4 +80,119 @@ footer { text-align: center; padding: 80px 8%; border-top: 1px solid var(--borde
     .photo-inner { width: 300px; height: 380px; }
     h1 { font-size: 3rem; }
     .nav-links { display: none; }
+
+}
+/* --- PROJECT BENTO DESIGN --- */
+.project-bento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.project-item {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 30px;
+    padding: 50px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 350px;
+}
+
+/* Make the first project take full width */
+.project-item.featured {
+    grid-column: span 2;
+    min-height: 400px;
+    background: linear-gradient(135deg, #0c0c0e 0%, #151518 100%);
+}
+
+.project-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Background Icon Decor */
+.project-icon-bg {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 10rem;
+    color: rgba(255, 255, 255, 0.02);
+    transform: rotate(-15deg);
+    transition: 0.4s;
+}
+
+.project-item:hover .project-icon-bg {
+    color: rgba(0, 209, 255, 0.05);
+    transform: rotate(0deg) scale(1.1);
+}
+
+/* Content Styling */
+.project-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.project-tags span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(0, 209, 255, 0.1);
+    padding: 5px 12px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-item h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.project-item p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 80%;
+    margin-bottom: 30px;
+}
+
+.view-project {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.view-project:hover {
+    gap: 12px;
+    color: var(--accent);
+}
+
+/* --- MOBILE ADJUSTMENTS --- */
+@media (max-width: 900px) {
+    .project-bento {
+        grid-template-columns: 1fr;
+    }
+    .project-item.featured {
+        grid-column: span 1;
+        min-height: 350px;
+    }
+    .project-item {
+        padding: 30px;
+    }
+    .project-item p {
+        max-width: 100%;
+    }
 }
